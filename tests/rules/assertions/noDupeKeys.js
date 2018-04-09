@@ -1,6 +1,10 @@
 export default {
   invalid: [
     {
+      code: 'type f = { a: number, b: string }; type g = { a: number, ...f }',
+      errors: [{message: 'Duplicate property.'}]
+    },
+    {
       code: 'type f = { a: number, b: string, a: number }',
       errors: [{message: 'Duplicate property.'}]
     },
@@ -101,6 +105,9 @@ export default {
     },
     {
       code: 'type f = { get(key: { a: 1 }): string, get(key: { a: 2 }): string}'
+    },
+    {
+      code: 'type f = { a: number, b: string }; type g = { c: number, ...f }'
     },
     {
       code: 'var a = {}; var b = {}; type f = { get(key: a): string, get(key: b): string }'

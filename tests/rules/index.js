@@ -8,38 +8,47 @@ import plugin from './../../src';
 
 rules.importPlugin(plugin, 'flowtype');
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      modules: true
+    },
+    ecmaVersion: 6,
+    sourceType: 'module'
+  }
+});
 
 const reportingRules = [
-  'boolean-style',
-  'define-flow-type',
-  'delimiter-dangle',
-  'generic-spacing',
-  'newline-after-flow-annotation',
-  'no-dupe-keys',
-  'no-flow-fix-me-comments',
-  'no-mutable-array',
-  'no-primitive-constructor-types',
-  'no-types-missing-file-annotation',
-  'no-unused-expressions',
-  'no-weak-types',
-  'object-type-delimiter',
-  'require-exact-type',
-  'require-parameter-type',
-  'require-return-type',
-  'require-types-at-top',
-  'require-valid-file-annotation',
-  'require-variable-type',
-  'semi',
-  'sort-keys',
-  'space-after-type-colon',
-  'space-before-generic-bracket',
-  'space-before-type-colon',
-  'type-id-match',
-  'type-import-style',
-  'union-intersection-spacing',
-  'use-flow-type',
-  'valid-syntax'
+  // 'boolean-style',
+  // 'define-flow-type',
+  // 'delimiter-dangle',
+  // 'generic-spacing',
+  // 'newline-after-flow-annotation',
+  // 'no-dupe-keys',
+  // 'no-flow-fix-me-comments',
+  // 'no-mutable-array',
+  // 'no-primitive-constructor-types',
+  // 'no-types-missing-file-annotation',
+  // 'no-unused-expressions',
+  // 'no-weak-types',
+  // 'object-type-delimiter',
+  // 'require-exact-type',
+  // 'require-parameter-type',
+  // 'require-return-type',
+  // 'require-types-at-top',
+  // 'require-valid-file-annotation',
+  // 'require-variable-type',
+  // 'semi',
+  // 'sort-keys',
+  // 'space-after-type-colon',
+  // 'space-before-generic-bracket',
+  // 'space-before-type-colon',
+  // 'type-id-match',
+  // 'type-import-style',
+  // 'union-intersection-spacing',
+  'use-flow-type'
+  // 'valid-syntax'
 ];
 
 const parser = require.resolve('babel-eslint');

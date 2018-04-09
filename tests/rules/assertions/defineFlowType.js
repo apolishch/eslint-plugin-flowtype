@@ -191,7 +191,14 @@ const ALWAYS_VALID = [
  */
 {
   const ruleTester = new RuleTester({
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    parserOptions: {
+      ecmaFeatures: {
+        modules: true
+      },
+      ecmaVersion: 6,
+      sourceType: 'module'
+    }
   });
 
   ruleTester.run('no-under must not trigger an error in these cases', noUndefRule, {
@@ -202,7 +209,14 @@ const ALWAYS_VALID = [
 
 {
   const ruleTester = new RuleTester({
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    parserOptions: {
+      ecmaFeatures: {
+        modules: true
+      },
+      ecmaVersion: 6,
+      sourceType: 'module'
+    }
   });
 
   ruleTester.run('no-undef must trigger an error when define-flow-type is not used in these cases', noUndefRule, {
